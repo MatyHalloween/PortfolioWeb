@@ -1,0 +1,103 @@
+{
+    "name": "Matías Binaghi",
+    "banner": "/img/MCU-Dr-Bruce-Banner-Smart-Hulk.png",
+    "image": "img/matias.jpg",
+    "position": "estudiante",
+    "work": [
+        {
+        "img": "/img/logo-2021071817232915100.png",
+        "puesto": "Administrativo / Community Manager",
+        "start": "2018",
+        "end": "Presente",
+        "info": [
+            "Administración de página web y redes sociales.",
+            "Gestión de sistemas informáticos de control de stock.",
+            "Armado y despacho de ventas."
+        ]
+    },
+        {
+        "img": "/img/freelance-logo-alt.png",
+        "puesto": "Community Manager",
+        "start": "2015",
+        "end": "2015",
+        "info": [
+            "Community Manager de pre-candidato a Intendente de la Ciudad de Rawson, Chubut.",
+            "Gestión de Redes Sociales.",
+            "Diseños de flayers de campaña."
+        ]
+        },
+        {
+        "img": "/img/PNG+for+Word+documents,+presentations,+and+web+use. (1).png",
+        "puesto": "Tesorero / Auditor",
+        "start": "2013",
+        "end": "2015",
+        "info": [
+            "Control de ingresos y egresos de dinero.",
+            "Formulación de informes de auditoria",
+            "Conciliación de cuentas",
+            "Auditor en procesos de compras"
+        ]
+    },
+        {
+        "img": "/img/aegis.png",
+        "puesto": "Operador telefónico",
+        "start": "2012",
+        "end": "2013",
+        "info": [
+            "Recepción de reclamos telefónicos",
+            "Derivación a áreas técnicas operativas",
+            "Informes sobre estados de gestión"
+        ]
+    }
+    ],
+    "educacion": [
+        {
+        "img": "/img/universidad_nacional_del_sur.png",
+        "school": "Universidad Nacional del Sur",
+        "titulo": "Contador Publico Nacional",
+        "start": "2016",
+        "end": "Presente",
+        "info": "Actualmente cursando materias del último año de la carrera. Materias Aprobadas: 75%."
+    },
+    {
+        "img": "/img/descarga.jfif",
+        "school": "Escuela Técnica N° 3 - René Favaloro",
+        "titulo": "Técnico en Gestión Organizacional",
+        "start": "2004",
+        "end": "2006",
+        "info": "Áreas Modulares: Gestión, Administración de RRHH, Dinámica empresarial, Sistemas de información Contable."
+    },
+    {
+        "img": "/img/Udemy_logo.svg.png",
+        "school": "Udemy",
+        "titulo": "Curso Power BI y Excel - Análisis de datos",
+        "start": null,
+        "end": "2021",
+        "info": null
+    },
+    {
+        "img": "/img/min_desarrollo_productivo.png",
+        "school": "Ministerio de Desarrollo Productivo y Cámara de la Industria Argentina del Software",
+        "titulo": "Argentina Programa - #SeProgramar",
+        "start": null,
+        "end": "2020",
+        "info": null
+    },
+    {
+        "img": "/img/Udemy_logo.svg.png",
+        "school": "Udemy",
+        "titulo": "Curso de Python 3",
+        "start": null,
+        "end": "2020",
+        "info": null
+    },
+    {
+        "img": "/img/cursosgratuitoscoursera.png",
+        "school": "Coursera",
+        "titulo": "Introducción a la Programación en Python",
+        "start": null,
+        "end": "2020",
+        "info": null
+    }
+    ]
+}

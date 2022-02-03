@@ -1,83 +1,23 @@
     <!-- Skills -->
+
     <section class="skill text-white section-bg" id="skill">
         <div class="container">
           <div class="section-title">
               <h2>Skills</h2>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph9" data-percent="50"></div> <!-- HTML5 -->
-              <div class="text-center" style="font-size: 50px;"><i class="fab fa-html5"></i></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph10" data-percent="50"></div> <!-- CSS3 -->
-              <div class="text-center" style="font-size: 50px;"><i class="fab fa-css3-alt"></i></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph11" data-percent="50"></div> <!-- BS5 -->
-              <div class="text-center" style="font-size: 50px;"><i class="fab fa-bootstrap"></i></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph12" data-percent="50"></div> <!-- Angular -->
-              <div class="text-center" style="font-size: 50px;"><i class="fab fa-angular"></i></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph13" data-percent="50"></div> <!-- Java  -->
-              <div class="text-center" style="font-size: 50px;"><i class="fab fa-java"></i></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph14" data-percent="50"></div> <!-- NodeJS -->
-              <div class="text-center" style="font-size: 50px;"><i class="fab fa-node"></i></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph1" data-percent="61"></div> <!-- Responsabilidad -->
-              <div class="text-center" style="font-size: 50px;"><h3>Responsabilidad</h3></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph2" data-percent="79"></div> <!-- Autogestión -->
-              <div class="text-center" style="font-size: 50px;"><h3>Autogestión</h3></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph3" data-percent="89"></div> <!-- Liderazgo -->
-              <div class="text-center" style="font-size: 50px;"><h3>Liderazgo</h3></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph4" data-percent="50"></div> <!-- Motivación -->
-              <div class="text-center" style="font-size: 50px;"><h3>Motivación</h3></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph5" data-percent="71"></div> <!-- InteligenciaSocial -->
-              <div class="text-center" style="font-size: 50px;"><h3>Inteligencia Social</h3></div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 circulos">
-              <div class="row flex-column m-0 p-0 justify-content-center">
-              <div class="chart" id="graph6" data-percent="68"></div> <!-- Cooperación -->
-              <div class="text-center" style="font-size: 50px;"><h3>Cooperación</h3></div>
-              </div>
-            </div>
+            <ul class="items-list" id="traList">
+              <li style="list-style:none" *ngFor="let skill of skillList">
+                <div class="col-lg-4 col-md-6 circulos">
+                <div class="row flex-column m-0 p-0 justify-content-center">
+                <div class="chart" [attr.id]="skill.id" [attr.data-percent]="skill.data"></div> <!-- HTML5 -->
+                <div class="text-center" style="font-size: 50px;" *ngIf="skill.clase; else blanda"><i [attr.class]="skill.clase"></i>
+                <ng-template #blanda><h3>{{skill.soft}}</h3></ng-template>
+                </div>
+                </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
-  
+    </section>

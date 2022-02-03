@@ -44,18 +44,3 @@ drawCircle('#efefef', options.lineWidth, 100 / 100);
 drawCircle('#13CE6A', options.lineWidth, options.percent / 100);
 
 }
-
-dibujarGrafico("graph1");
-dibujarGrafico("graph2");
-dibujarGrafico("graph3");
-dibujarGrafico("graph4");
-dibujarGrafico("graph5");
-dibujarGrafico("graph6");
-dibujarGrafico("graph9");
-dibujarGrafico("graph10");
-dibujarGrafico("graph11");
-dibujarGrafico("graph12");
-dibujarGrafico("graph13");
-dibujarGrafico("graph14");
-dibujarGrafico("graph18");
-

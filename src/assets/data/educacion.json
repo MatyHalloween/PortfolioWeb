@@ -1,0 +1,44 @@
+{
+    "educacion": [
+    {
+    "img": "../assets/img/universidad_nacional_del_sur.png",
+    "school": "Universidad Nacional del Sur",
+    "titulo": "Contador Publico Nacional",
+    "start": "2016",
+    "end": "Presente",
+    "info": "Actualmente cursando materias del último año de la carrera. Materias Aprobadas: 75%."
+},
+{
+    "img": "../assets/img/descarga.jfif",
+    "school": "Escuela Técnica N° 3 - René Favaloro",
+    "titulo": "Técnico en Gestión Organizacional",
+    "start": "2004",
+    "end": "2006",
+    "info": "Áreas Modulares: Gestión, Administración de RRHH, Dinámica empresarial, Sistemas de información Contable."
+},
+{
+    "img": "../assets/img/Udemy_logo.svg.png",
+    "school": "Udemy",
+    "titulo": "Curso Power BI y Excel - Análisis de datos",
+    "end": "2021"
+},
+{
+    "img": "../assets/img/min_desarrollo_productivo.png",
+    "school": "Ministerio de Desarrollo Productivo y Cámara de la Industria Argentina del Software",
+    "titulo": "Argentina Programa - #SeProgramar",
+    "end": "2020"
+},
+{
+    "img": "../assets/img/Udemy_logo.svg.png",
+    "school": "Udemy",
+    "titulo": "Curso de Python 3",
+    "end": "2020"
+},
+{
+    "img": "../assets/img/cursosgratuitoscoursera.png",
+    "school": "Coursera",
+    "titulo": "Introducción a la Programación en Python",
+    "end": "2020"
+}
+]
+}

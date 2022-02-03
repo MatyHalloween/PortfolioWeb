@@ -7,98 +7,30 @@
           </div>
         </div>
         <div class="exp2">
-        <div class="row align-items-center me-2">
-          <div class="col-md-auto"> <!-- Logos -->
-            <div class="ps-4 logo">
-              <img src="../assets/img/logo-2021071817232915100.png" alt="">
-            </div>
-          </div>
-          <div class="col-md-auto">  <!-- Iconos -->
-            <div class="icon d-flex align-items-center align-baseline">
-              <i class="fas fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-8 col-sm-12">  <!-- Parrafos -->
-            <div class="ps-lg-4 m-5 parrafos">
-              <h5>Administrativo / Community Manager</h5>
-              <h6>2018 - Presente</h6>
-              <ul>
-                <li>Administración de página web y redes sociales</li>
-                <li>Gestión de sistemas informáticos de control de stock</li>
-                <li>Armado y despacho de ventas</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center me-2">
-          <div class="col-md-auto"> <!-- Logos -->
-            <div class="ps-4 logo">
-              <img src="../assets/img/freelance-logo-alt.png" alt="">
-            </div>
-          </div>
-          <div class="col-md-auto ">  <!-- Iconos -->
-            <div class="icon">
-              <i class="fas fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="col-md-4">  <!-- Parrafos -->
-            <div class="ps-lg-4 m-5 parrafos">
-              <h5>Community Manager</h5>
-              <h6>2015 - 2015</h6>
-              <ul>
-                <li>Community Manager de pre-candidato a Intendente de la Ciudad de Rawson, Chubut.</li>
-                <li>Gestión de Redes Sociales</li>
-                <li>Diseños de flayers de campaña</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center me-2">
-          <div class="col-md-auto"> <!-- Logos -->
-            <div class="ps-4 logo">
-              <img src="../assets/img/PNG+for+Word+documents,+presentations,+and+web+use. (1).png" alt="">
-            </div>
-          </div>
-          <div class="col-md-auto">  <!-- Iconos -->
-            <div class="icon">
-              <i class="fas fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="col-md-4">  <!-- Parrafos -->
-            <div class="ps-lg-4 m-5 parrafos">
-              <h5>Tesorero / Auditor</h5>
-              <h6>2013 - 2015</h6>
-              <ul>
-                <li>Control de ingresos y egresos de dinero</li>
-                <li>Formulación de informes de auditoria</li>
-                <li>Conciliación de cuentas</li>
-                <li>Auditor en procesos de compras</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center me-2">
-          <div class="col-md-auto"> <!-- Logos -->
-            <div class="ps-4 logo">
-              <img src="../assets/img/aegis.png" alt="">
-            </div>
-          </div>
-          <div class="col-md-auto">  <!-- Iconos -->
-            <div class="icon">
-              <i class="fas fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="col-md-4">  <!-- Parrafos -->
-            <div class="ps-lg-4 m-5 parrafos">
-              <h5>Operador Telefonico</h5>
-              <h6>2012 - 2013</h6>
-              <ul>
-                <li>Recepción de reclamos telefónicos</li>
-                <li>Derivación a áreas técnicas operativas</li>
-                <li>Informes sobre estados de gestión</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <ul class="items-list" id="traList">
+            <li style="list-style:none" *ngFor="let trabajo of trabajoList">
+              <div class="row align-items-center me-2">
+                <div class="col-md-auto"> <!-- Logos -->
+                  <div class="ps-4 logo">
+                    <img [src]="trabajo.img" alt="">
+                  </div>
+                </div>
+                <div class="col-md-auto">  <!-- Iconos -->
+                  <div class="icon d-flex align-items-center align-baseline">
+                    <i class="fas fa-arrow-circle-right"></i>
+                  </div>
+                </div>
+                <div class="col-md-4 col-md-8 col-sm-12">  <!-- Parrafos -->
+                  <div class="ps-lg-4 m-5 parrafos">
+                    <h5>{{trabajo.puesto}}</h5>
+                    <h6>{{trabajo.start}} - {{trabajo.end}}</h6>
+                    <ul>
+                      <li style="list-style: disc;" *ngFor="let actividad of trabajo.info">{{actividad}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>

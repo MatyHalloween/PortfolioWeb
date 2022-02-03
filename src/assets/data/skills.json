@@ -1,0 +1,64 @@
+{
+    "skill": [
+        {
+            "id": "graph9",
+            "data": "50",
+            "clase": "fab fa-html5"
+        },
+        {
+            "id": "graph10",
+            "data-percent": "50",
+            "clase": "fab fa-css3-alt"
+        },
+        {
+            "id": "grap11",
+            "data-percent": "50",
+            "clase": "fab fa-bootstrap"
+        },
+        {
+            "id": "graph12",
+            "data-percent": "50",
+            "clase": "fab fa-angular"
+        },
+        {
+            "id": "graph13",
+            "data-percent": "50",
+            "clase": "fab fa-java"
+        },
+        {
+            "id": "graph14",
+            "data-percent": "50",
+            "clase": "fab fa-node"
+        },
+        {
+            "id": "graph1",
+            "data-percent": "61",
+            "soft": "Responsabilidad"
+        },
+        {
+            "id": "graph2",
+            "data-percent": "79",
+            "soft": "Autogestión"
+        },
+        {
+            "id": "graph3",
+            "data-percent": "89",
+            "soft": "Liderazgo"
+        },
+        {
+            "id": "graph4",
+            "data-percent": "50",
+            "soft": "Motivación"
+        },
+        {
+            "id": "graph5",
+            "data-percent": "71",
+            "soft": "Inteligencia"
+        },
+        {
+            "id": "graph6",
+            "data-percent": "68",
+            "soft": "Cooperación"
+        }
+    ]
+}

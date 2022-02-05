@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Educacion } from '../data/educacion';
 import { Trabajo } from '../data/trabajo';
 import { Skill } from '../data/skill';
+import { Proyecto } from '../data/proyecto';
 import { map } from 'rxjs/operators';
 
 
@@ -29,6 +30,11 @@ export class PortfolioService {
     obtenerDatosSkill(): Observable<Skill[]> {
       return this.http.get<any>("./assets/data/skill.json").pipe(
         map(res => res.skill)
+      );
+  }
+      obtenerDatosProyecto(): Observable<Proyecto[]> {
+      return this.http.get<any>("./assets/data/proyecto.json").pipe(
+        map(res => res.proyecto)
       );
   }
 

@@ -5,19 +5,14 @@
           <div class="section-title">
               <h2>Skills</h2>
           </div>
-          <div class="row">
+          <div class="row" style="justify-content: center;">
             <ul class="items-list" id="traList">
-              <li style="list-style:none" *ngFor="let skill of skillList">
-                <div class="col-lg-4 col-md-6 circulos">
+              <li class="col-lg-4 col-md-6 circulos" style="list-style:none" *ngFor="let skill of skillList">
                 <div class="row flex-column m-0 p-0 justify-content-center">
-                <div class="chart" [attr.id]="skill.id" [attr.data-percent]="skill.data"></div> <!-- HTML5 -->
-                <ng-template [ngif]="skill.clase" [ngifelse]="blanda2">
-                  <i [attr.class]="skill.clase"></i>
-                </ng-template>
-                <ng-template #blanda2>
-                  <h3>{{skill.soft}}</h3>
-                </ng-template>
-                </div>
+                <div class="chart" id="{{skill.id}}" [attr.data-percent]="skill.data"></div> <!-- HTML5 -->
+                <div class="text-center" style="font-size: 50px;" *ngIf="skill.clase; else blanda"><i [attr.class]="skill.clase"></i>
+                  </div>
+                  <ng-template #blanda><h3 class="text-center">{{skill.soft}}</h3></ng-template>
                 </div>
               </li>
             </ul>
@@ -27,6 +22,11 @@
 
 
 
-<!-- <div class="text-center" style="font-size: 50px;"><i [attr.class]="skill.clase"></i>
-  <ng-template #uno><h3>{{skill.soft}}</h3></ng-template>
-  </div> -->
+<!-- 
+
+                <ng-template [ngif]="skill.clase" [ngifelse]="blanda2">
+                  <i [attr.class]="skill.clase"></i>
+                </ng-template>
+                <ng-template #blanda2>
+                  <h3>{{skill.soft}}</h3>
+                </ng-template>-->

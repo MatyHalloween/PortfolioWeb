@@ -95,14 +95,18 @@ section {
     align-content: center;
 }
 
+.skill .row ul {
+    display: contents;
+}
+
 .circulos {
     display: flex;
     justify-content: center;
 }
 
 .circulos h3 {
-    display: block;
-    justify-content: center;
+    align-items: center;
+    height: 75px;
 }
 
 .circulos i {

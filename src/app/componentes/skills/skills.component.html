@@ -3,30 +3,42 @@
     <section class="skill text-white section-bg" id="skill">
         <div class="container">
           <div class="section-title">
-              <h2>Skills</h2>
+              <h2 class="mb-2">Skills</h2>
+              <div class="justify-content-end"><a href=""><i class="bi bi-plus-square"></i></a></div>
           </div>
           <div class="row" style="justify-content: center;">
             <ul class="items-list" id="traList">
               <li class="col-lg-4 col-md-6 circulos" style="list-style:none" *ngFor="let skill of skillList">
-                <div class="row flex-column m-0 p-0 justify-content-center">
-                <div class="chart" id="{{skill.id}}" [attr.data-percent]="skill.data"></div> <!-- HTML5 -->
-                <div class="text-center" style="font-size: 50px;" *ngIf="skill.clase; else blanda"><i [attr.class]="skill.clase"></i>
+                <div class="row flex-column justify-content-center">
+                  <circle-progress
+                  [id]="skill.id"
+                  [percent]="skill.data"
+                  [radius]="50"
+                  [outerStrokeWidth]="8"
+                  [innerStrokeWidth]="8"
+                  [space]="-8"
+                  [outerStrokeColor]="'#13CE6A'"
+                  [innerStrokeColor]="'#fff'"
+                  [animation]="false"
+                  [animationDuration]="300"
+                  [titleColor]="'#fff'"
+                  [titleFontSize]="'20'"
+                  [unitsFontSize]="'10'"
+                  [unitsColor]="'#fff'"
+                  [showSubtitle]="false"
+                  [subtitleColor]="'#fff'"
+                  [responsive]="true"
+                ></circle-progress><!-- HTML5 -->
+                <div class="text-center" style="font-size: 50px;" *ngIf="skill.clase; else blanda"><i [attr.class]="skill.clase"></i><a href="" ><i class="bi bi-pencil-square ms-2"></i></a>
+                  <a href=""><i class="bi bi-trash"></i></a>
                   </div>
-                  <ng-template #blanda><h3 class="text-center">{{skill.soft}}</h3></ng-template>
+                  <ng-template #blanda><h3 class="text-center ">{{skill.soft}}<a href="" ><i class="bi bi-pencil-square ms-2"></i>
+                    
+                  </a>
+                <a href=""><i class="bi bi-trash"></i></a></h3></ng-template>
                 </div>
               </li>
             </ul>
           </div>
         </div>
     </section>
-
-
-
-<!-- 
-
-                <ng-template [ngif]="skill.clase" [ngifelse]="blanda2">
-                  <i [attr.class]="skill.clase"></i>
-                </ng-template>
-                <ng-template #blanda2>
-                  <h3>{{skill.soft}}</h3>
-                </ng-template>-->

@@ -1,0 +1,10 @@
+.container { position: relative; }
+.container img { display: block; }
+.container a {
+    background-color: transparent;
+    color: white;
+}
+
+.container .bi-pencil-square {
+    font-size: 30px;
+}

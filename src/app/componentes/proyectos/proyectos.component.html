@@ -1,77 +1,20 @@
 <!-- Proyectos -->
 <section id="proyectos" class="portfolio">
   <div class="container">
-    <div class="section-title">
+    <div class="section-title mb-5">
       <h2>Proyectos</h2>
     </div>
-    <ul id="portfolio-filters" class="d-flex justify-content-center">
-      <li data-filter="*" class="filter-active">Todo</li>
-      <li data-filter=".filter-web">Web</li>
-      <li data-filter=".filter-app">App</li>
-    </ul>
-    <div class="row portfolio-container">
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web mb-5">
-        <div class="portfolio-img">
-          <img src="../assets/img/proy1.png" class="img-fluid" />
-          <div class="portfolio-info">
-            <h4>Portfolio personal</h4>
 
-            <p>en Angular y Springboost</p>
 
-            <a
-              href="../assets/img/proy1.png"
-              title="Mi Portfolio"
-              class="preview-link popup-image"
-              ><i class="bi bi-plus"></i
-            ></a>
-            <a href="#" title="Ver más " target="_blank " class="details-link"
-              ><i class="bi bi-link"></i
-            ></a>
+  <ul class="row d-flex" style="list-style: none;">
+    <li class="col-lg-4 col-md-6" *ngFor="let proyecto of proyectoList">
+        <div class="portfolio-item me-lg-5 {{proyecto.tipo}} mb-5 ">
+          <div class="portfolio-img ">
+            <a href="#"><img [src]="proyecto.img" class="img-fluid" /></a>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item filter-app mb-5">
-        <div class="portfolio-img">
-          <img src="../assets/img/proy2.png" class="img-fluid" />
-          <div class="portfolio-info">
-            <h4>Proyecto 2</h4>
-
-            <p>Si tuviera uno que mostrar</p>
-
-            <a
-              href="../assets/img/proy2.png"
-              title="Proyecto 2"
-              class="preview-link popup-image"
-              ><i class="bi bi-plus"></i
-            ></a>
-            <a href="#" title="Ver más " target="_blank " class="details-link"
-              ><i class="bi bi-link"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <div class="portfolio-img">
-          <img src="../assets/img/proy3.png" class="img-fluid" />
-          <div class="portfolio-info">
-            <h4>Proyecto 3</h4>
-
-            <p>Etc... Continuara...</p>
-
-            <a
-              href="../assets/img/proy3.png"
-              title="Continuara"
-              class="preview-link popup-image"
-              ><i class="bi bi-plus"></i
-            ></a>
-            <a href="#" title="Ver más " target="_blank " class="details-link"
-              ><i class="bi bi-link"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </li>
+  </ul>
   </div>
+
 </section>

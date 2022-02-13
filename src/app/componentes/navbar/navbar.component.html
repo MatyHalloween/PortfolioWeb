@@ -1,6 +1,6 @@
     <!-- Barra Navegacion  -->
+<div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
           <a class="navbar-brand" href="">
             <img src="../assets/img/APLogo-20-20.png" width="150" alt="">
             #YoProgramo</a>
@@ -33,13 +33,46 @@
                 <a href="#" class="ms-2"><i class="bi bi-instagram"></i></a>
                 <a href="#" class="ms-2"><i class="bi bi-linkedin"></i></a>
               </div>
-              <form lass="form-inline my-2 my-lg-0">
-                <button class="btn-custom ms-lg-4" routerLink="/login">
+              <form class="form-inline my-2 my-lg-0">
+                <button class="btn-custom ms-lg-4" data-bs-toggle="modal" data-bs-target="#modalForm">
                 Login
                 </button>
               </form>
             </ul>
           </div>
-        </div>
       </nav>
+    </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content text-white section-bg">
+                      <div class="modal-header">
+                        <img src="../assets/img/APLogo-20-20.png" width="200" alt="">
+                          
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <form>
+                              <div class="mb-3">
+                                  <label class="form-label">Email</label>
+                                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                              </div>
+                              <div class="mb-3 form-check">
+                                  <input type="checkbox" class="form-check-input" id="rememberMe" />
+                                  <label class="form-check-label" for="rememberMe">Recordar usuario</label>
+                              </div>
+                              <div class="modal-footer d-block">
+                                  <p class="float-start">#YoProgramo</p>
+                                  <button type="submit" class="btn btn-custom float-end" (click)="onSubmit()">Submit</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
   

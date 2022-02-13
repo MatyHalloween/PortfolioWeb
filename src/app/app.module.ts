@@ -11,9 +11,9 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { LoginComponent } from './componentes/auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -26,14 +26,14 @@ import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
     SkillsComponent,
     ProyectosComponent,
     FooterComponent,
-    LoginComponent,
     PorfolioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgCircleProgressModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { Trabajo } from '../data/trabajo';
 import { Skill } from '../data/skill';
 import { Proyecto } from '../data/proyecto';
 import { map } from 'rxjs/operators';
+import { config } from '../data/config/Config';
 
 
 @Injectable({
@@ -21,6 +22,10 @@ export class PortfolioService {
     );
   }
 
+  borrarEducacion(id: number): Observable<any> {
+    return this.http.delete<any>(config.baseUrl + "educacion/" + id);
+  }
+
   obtenerDatosTrabajo(): Observable<Trabajo[]> {
     return this.http.get<any>("./assets/data/trabajo.json").pipe(
       map(res => res.trabajo)
@@ -32,6 +37,7 @@ export class PortfolioService {
         map(res => res.skill)
       );
   }
+
       obtenerDatosProyecto(): Observable<Proyecto[]> {
       return this.http.get<any>("./assets/data/proyecto.json").pipe(
         map(res => res.proyecto)

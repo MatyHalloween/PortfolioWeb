@@ -1,7 +1,8 @@
 export interface Trabajo {
+    id: number;
     img: string;
     puesto: string;
-    start: string;
-    end: string;
+    inicio: string;
+    fin: string;
     info: string;
 }

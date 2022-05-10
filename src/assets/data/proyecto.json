@@ -2,25 +2,16 @@
     "proyecto":
     [
         {
-            "tipo": "filter-web",
             "img": "../assets/img/proy1.png",
-            "infoh4": "Portfolio personal",
-            "infop": "en Angular y Springboost",
-            "titulo": "Mi portfolio"
+            "url": "www.google.com.ar"
         },
         {
-            "tipo": "filter-app",
             "img": "../assets/img/proy2.png",
-            "infoh4": "Proyecto 2",
-            "infop": "Si tuviera uno que mostrar",
-            "titulo": "Proyecto 2"
+            "url": "www.google.com.ar"
         },
         {
-            "tipo": "filter-web",
             "img": "../assets/img/proy3.png",
-            "infoh4": "Proyecto 3",
-            "infop": "Etc... Continuara...",
-            "titulo": "Continuara"
+            "url": "www.google.com.ar"
         }
     ]
 }

@@ -6,17 +6,15 @@
           <h2>Acerca De</h2>
       </div>
       <div class="row">
-        <div class="col member">
-          <div class="pic">
-            <img class="mx-auto d-block" src="../assets/img/matias.jpg" alt="">
-            <div class="">
-              <a href=""><i class="bi bi-pencil-square "></i></a>
-            </div>
+        <div class="col member text-center">
+          <div class="pic d-block">
+            <img class="mx-auto" src="https://i.imgur.com/UHa9Cq9.jpg" alt="">
+            <a *ngIf="isUserLogged" href="" data-bs-toggle="modal" data-bs-target="#modalFotoPerfil"><i class="bi bi-pencil-square "></i></a>   <!-- Boton para foto de perfil -->
           </div>
           <div class="ps-4 text-center pic">
             <p>Mi nombre es Matías Binaghi. <br> Full Stack Developer Jr y Estudiante de Contador Público.</p>
-            <div class="info">
-            <a href=""><i class="bi bi-pencil-square"></i></a>
+            <div *ngIf="isUserLogged" class="info" >
+            <a href="" data-bs-toggle="modal" data-bs-target="#modalAcercaDe"><i class="bi bi-pencil-square"></i></a> <!-- Boton para editar info -->
           </div>
           </div>
           <div class="social d-flex mt-4" style="justify-content: center;">
@@ -27,5 +25,55 @@
         </div>
       </div>
     </div>
-
   </section>
+
+  <!-- Modal para foto de perfil -->
+
+  <div class="modal fade" id="modalFotoPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Subir nueva foto de perfil</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="body-desc">
+                    Puedes subir cualquier imagen en formato JPG, GIF o PNG. </p>
+                <div class="photo-input"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> <!--<button class="btn btn-sm btn-primary" onclick="document.getElementById('loadFile').click()"> Select a file </button>--> </div>
+            </div>
+            <div class="modal-footer">
+                <p class="footer-title">
+                    Si tienes problemas intenta con una imagen de menor tamaño.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Modal para editar info -->
+
+  <div class="modal fade" id="modalAcercaDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Acerca de</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Ingresar texto:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>

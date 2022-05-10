@@ -4,15 +4,14 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   modalLoginForm: FormGroup;
   loginError: Boolean = false;
-  isUserLogged: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -25,10 +24,9 @@ export class NavbarComponent implements OnInit {
           password: ['', [Validators.required, Validators.minLength(6)]]
         }
       )
-    }
+     }
 
   ngOnInit(): void {
-    this.isUserLogged = this.authService.isUserLogged();
   }
 
   onSubmit(event: Event) {
@@ -44,19 +42,6 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-  private clearForm(){
-    this.modalLoginForm.setValue({
-      email:"",
-      password:""
-  })
-}
-
-logout(): void {
-  this.authService.logout();
-  this.isUserLogged = false;
-  window.location.reload();
-}
-
   get Email() {
     return this.modalLoginForm.get('email');
   }
@@ -65,8 +50,4 @@ logout(): void {
     return this.modalLoginForm.get('password');
   }
 
-
-  onNewLogin() {
-    this.clearForm();
-  }
 }

@@ -1,6 +1,6 @@
 export interface Skill {
-    id: string;
-    data: number;
+    id: number;
+    dato: number;
     clase?: string; //Iconos
     soft?: string; //Texto
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  isUserLogged: Boolean = false;
+
+  constructor(
+    private authService: AuthService,
+  ) { }
 
   ngOnInit(): void {
+
+    this.isUserLogged = this.authService.isUserLogged();
   }
 
 }

@@ -3,8 +3,8 @@
     {
     "img": "../assets/img/logo-2021071817232915100.png",
     "puesto": "Administrativo / Community Manager",
-    "start": "2018",
-    "end": "Presente",
+    "inicio": "2018",
+    "fin": "Presente",
     "info": [
         "Administración de página web y redes sociales.",
         "Gestión de sistemas informáticos de control de stock.",
@@ -14,8 +14,8 @@
     {
     "img": "../assets/img/freelance-logo-alt.png",
     "puesto": "Community Manager",
-    "start": "2015",
-    "end": "2015",
+    "inicio": "2015",
+    "fin": "2015",
     "info": [
         "Community Manager de pre-candidato a Intendente de la Ciudad de Rawson, Chubut.",
         "Gestión de Redes Sociales.",
@@ -25,8 +25,8 @@
     {
     "img": "../assets/img/PNG+for+Word+documents,+presentations,+and+web+use. (1).png",
     "puesto": "Tesorero / Auditor",
-    "start": "2013",
-    "end": "2015",
+    "inicio": "2013",
+    "fin": "2015",
     "info": [
         "Control de ingresos y egresos de dinero.",
         "Formulación de informes de auditoria",
@@ -37,8 +37,8 @@
     {
     "img": "../assets/img/aegis.png",
     "puesto": "Operador telefónico",
-    "start": "2012",
-    "end": "2013",
+    "inicio": "2012",
+    "fin": "2013",
     "info": [
         "Recepción de reclamos telefónicos",
         "Derivación a áreas técnicas operativas",

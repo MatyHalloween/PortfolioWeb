@@ -4,12 +4,12 @@
       <div class="container">
         <div class="section-title">
             <h2>Educación</h2>
-            <div class="justify-content-end"><a href="" style="color: black;"><i class="bi bi-plus-square"></i></a></div>
+            <div *ngIf="isUserLogged" class="justify-content-fin"><a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onNewEducation"><i class="bi bi-plus-square"></i></a></div> <!--Boton de Agregar Educacion-->
         </div>
       </div>
       <div class="exp2">
         <ul class="items-list" id="eduList">
-          <li style="list-style:none" *ngFor="let educacion of educacionList">
+          <li style="list-style:none" *ngFor="let educacion of educacionList; let i = index">
             <div class="row align-items-center me-2">
               <div class="col-md-auto"> <!-- Logos -->
                 <div class="ps-4 logo">
@@ -24,19 +24,57 @@
               <div class="col-md-4 col-md-8 col-sm-12">  <!-- Parrafos -->
                 <div class="ps-lg-4 m-5 parrafos">
                   <h5>{{educacion.titulo}}</h5>
-                  <h6 *ngIf="educacion.start; else vacio">{{educacion.school}} - ({{educacion.start}} - {{educacion.end}})</h6>
-                  <ng-template #vacio><h6>{{educacion.school}} - ({{educacion.end}})</h6></ng-template>
+                  <h6 *ngIf="educacion.inicio; else vacio">{{educacion.school}} - ({{educacion.inicio}} - {{educacion.fin}})</h6>
+                  <ng-template #vacio><h6>{{educacion.school}} - ({{educacion.fin}})</h6></ng-template>
                   <p>{{educacion.info}}</p>
                 </div>
               </div>
-              <div class="col-md-auto">
-                <a href="" style="color: black;">
-                  <i class="bi bi-pencil-square me-3"></i>
-                  <i class="bi bi-trash"></i>
-              </a>
-            </div>
+              <div *ngIf="isUserLogged" class="data-control">
+                <div class="col-md-auto btn-edit">
+                  <a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onEditEducation(i)">
+                    <i class="bi bi-pencil-square me-3"></i></a> <!--Boton Editar-->
+                </div>
+                <div class="col-md-auto btn-edit">
+                  <a href="" style="color: black;" (click)="onDeleteEducation(i)"><i class="bi bi-trash"></i></a> <!--Boton Borrar-->
+                </div>
+              </div>
             </div>
           </li>
         </ul>
       </div>
       </section>
+
+            <!-- Modal Nueva Educacion-->
+
+            <div class="modal fade" id="modalNuevaEdu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalNuevaEduLabel" >Nueva Educación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="modalNuevaEdu" (ngSubmit)="onSubmit">
+                    <p>Logo de la Institución (URL):</p>
+                    <input class="form-control mb-2" type="text" id="message-text"> <!-- <div class="photo-input mb-3"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> </div> -->
+                    <p>Título de grado o nombre del curso</p>
+                    <input class="form-control mb-2" type="text" id="message-text">
+                    <div>
+                      <p>Año de inicio</p>
+                      <input class="form-control mb-2" type="text" id="message-text">
+                      <p>Año de fin. Si no tiene un año escribir Presente.</p>
+                      <input class="form-control mb-2" type="text" id="message-text">
+                    </div>
+                    <div>
+                      <p>Información para complementar</p>
+                      <input class="form-control mb-2" type="text" id="message-text">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+            </div>
+          </div>

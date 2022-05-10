@@ -3,10 +3,35 @@
     <header class="banner" id="inicio">
         <div class="container">
             <div class="row">
-              <div class="col-md-10 col-12 mx-auto">
-                <img class="img-fluid rounded mx-auto d-block" src="../assets/img/MCU-Dr-Bruce-Banner-Smart-Hulk.png"><div class="position-relative"><a class="position-absolute bottom-0 end-0" href=""><i class="bi bi-pencil-square "></i></a></div>
-              </div>
+            <div class="col-md-10 col-12 mx-auto">
+                <img class="img-fluid rounded mx-auto d-block" src="../assets/img/MCU-Dr-Bruce-Banner-Smart-Hulk.png"><div *ngIf="isUserLogged" class="position-relative"><a class="position-absolute bottom-0 end-0" href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil-square "></i></a></div> <!-- Boton para editar foto -->
+            </div>
             </div>
         </div>
-      </header>
+    </header>
 
+
+    <!-- Modal para editar foto -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Subir nueva foto de perfil</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="body-desc">
+                        Puedes subir cualquier imagen en formato JPG, GIF o PNG. </p>
+                    <div class="photo-input"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> <!--<button class="btn btn-sm btn-primary" onclick="document.getElementById('loadFile').click()"> Select a file </button>--> </div>
+                </div>
+                <div class="modal-footer">
+                    <p class="footer-title">
+                        Si tienes problemas intenta con una imagen de menor tamaño.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>

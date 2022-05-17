@@ -15,7 +15,8 @@ export class SkillsComponent implements OnInit {
 
   modalNuevaSkill: FormGroup;
 
-  constructor(private portfolioService: PortfolioService,
+  constructor(
+    private portfolioService: PortfolioService,
     private authService: AuthService,
     private formBuilder: FormBuilder) {
       this.modalNuevaSkill = this.formBuilder.group({
@@ -31,12 +32,7 @@ export class SkillsComponent implements OnInit {
 
     this.isUserLogged = this.authService.isUserLogged();
 
-
-    this.portfolioService.obtenerDatosSkill().subscribe(
-      (data: Skill[]) => {
-        this.skillList = data;
-      }
-    );
+    this.reloadData();
 
   }
 
@@ -67,7 +63,20 @@ export class SkillsComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.modalNuevaSkill.value);
+    let skill: Skill = this.modalNuevaSkill.value;
+    if (this.modalNuevaSkill.get('id')?.value == '') {
+      this.portfolioService.guardarNuevaSkill(skill).subscribe(
+        (newSkill: Skill) => {
+          this.skillList.push(newSkill);
+        }
+      );
+    } else {
+      this.portfolioService.modificarSkill(skill).subscribe(
+        () => {
+          this.reloadData();
+        }
+      )
+    }
   }
 
   onNewSkill(){
@@ -82,7 +91,7 @@ export class SkillsComponent implements OnInit {
   onDeleteSkill(index: number) {
     let skill: Skill = this.skillList[index];
     if (confirm("¿Está seguro que desea borrar la skill seleccionada?")) {
-      this.portfolioService.borrarEducacion(skill.id).subscribe(
+      this.portfolioService.borrarSkill(skill.id).subscribe(
         () => {
           this.reloadData();
         }

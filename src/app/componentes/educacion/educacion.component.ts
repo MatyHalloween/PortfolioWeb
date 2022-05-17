@@ -35,14 +35,8 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
 
     this.isUserLogged = this.authService.isUserLogged();
-    
-    this.reloadData();
 
-    this.portfolioService.obtenerDatosEducacion().subscribe(
-      (data: Educacion[]) => {
-        this.educacionList = data;
-      }
-    );
+    this.reloadData();
   }
 
   private reloadData() {
@@ -78,7 +72,20 @@ export class EducacionComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.modalNuevaEdu.value);
+    let educacion: Educacion = this.modalNuevaEdu.value;
+    if (this.modalNuevaEdu.get('id')?.value == '') {
+      this.portfolioService.guardarNuevaEducacion(educacion).subscribe(
+        (newEducacion: Educacion) => {
+          this.educacionList.push(newEducacion);
+        }
+      );
+    } else {
+      this.portfolioService.modificarEducacion(educacion).subscribe(
+        () => {
+          this.reloadData();
+        }
+      )
+    }
     
   }
 

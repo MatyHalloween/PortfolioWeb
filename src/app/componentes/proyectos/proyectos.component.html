@@ -3,21 +3,19 @@
   <div class="container">
     <div class="section-title mb-5">
       <h2>Proyectos</h2>
-      <div class="justify-content-end"><a href="" data-bs-toggle="modal" data-bs-target="#modalProyecto"><i class="bi bi-plus-square"></i></a></div>
+      <div *ngIf="isUserLogged" class="justify-content-end"><a href="" data-bs-toggle="modal" data-bs-target="#modalNuevoProyecto" (click)="onNewProyecto()"><i class="bi bi-plus-square"></i></a></div>
     </div>
 
 
   <ul class="row d-flex" style="list-style: none;">
-    <li class="col-lg-4 col-md-6" *ngFor="let proyecto of proyectoList">
+    <li class="col-lg-4 col-md-6" *ngFor="let proyecto of proyectoList; let i = index">
         <div class="portfolio-item me-lg-5 mb-sm-5 ">
           <div class="portfolio-img ">
-            <a href={{proyecto.url}}><img [src]="proyecto.img" class="img-fluid" /></a>
-            <div class="col-md-auto mt-lg-3">
-              <a href="" style="color: black;">
-                <i class="bi bi-pencil-square me-3"></i>
-                <i class="bi bi-trash"></i>
-            </a>
-          </div>
+            <a href="{{proyecto.url}}"><img [src]="proyecto.img" class="img-fluid" /></a>
+            <div *ngIf="isUserLogged" class="text-center">
+              <a href="" data-bs-toggle="modal" data-bs-target="#modalNuevoProyecto"  (click)="onEditProyecto(i)" ><i class="bi bi-pencil-square ms-2"></i></a>
+              <a href="" (click)="onDeleteProyecto(i)"><i class="bi bi-trash"></i></a>
+            </div>
           </div>
         </div>
     </li>
@@ -27,30 +25,33 @@
 
 <!-- Modal para Proyectos -->
 
-<div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalNuevoProyecto" tabindex="-1" aria-labelledby="modalNuevoProyectoLabel" aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                  Subir foto del proyecto</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h5 class="modal-title" id="modalNuevoProyectoLabel">
+                  Agregar un nuevo proyecto.</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form [formGroup]="modalNuevoProyecto" (ngSubmit)="onSubmit()">
+              <input type="hidden" name="id" formControlName="id">
               <p class="body-desc">
-                  Puedes subir cualquier imagen en formato JPG, GIF o PNG. </p>
-              <div class="photo-input mb-3"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> <!--<button class="btn btn-sm btn-primary" onclick="document.getElementById('loadFile').click()"> Select a file </button>--> </div>
+                Imagen del proyecto (URL): </p>
+                  <input class="form-control mb-2" name="img" type="text" id="img" formControlName="img">
               <div>
                 <p class="modal-title">URL del proyecto:</p>
-                <input class="form-control mb-2" type="text" id="message-text">
+                <input class="form-control mb-2" type="text" name="url" formControlName="url">
               </div>
-          </div>
-          <div class="modal-footer">
-            <p class="footer-title">
-                Si tienes problemas intenta con una imagen de menor tamaño.</p>
+              <div class="modal-footer">
+                <p class="footer-title">
+                    Si tienes problemas intenta con una imagen de menor tamaño.</p>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+              </div>
+          </form>
         </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Actualizar</button>
-          </div>
-      </div>
+    </div>
   </div>
 </div>

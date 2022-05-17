@@ -21,11 +21,10 @@ export class ExperienciaComponent implements OnInit {
       this.modalNuevaExp = this.formBuilder.group({
         id:[""],
         img:[""],
-        school:["", [Validators.required]],
-        titulo:["", [Validators.required]],
-        inicio:[""],
+        puesto:["", [Validators.required]],
+        inicio:["", [Validators.required]],
         fin:["", [Validators.required]],
-        info:[""]
+        info:["", [Validators.required]]
       }
 
     )
@@ -37,11 +36,6 @@ export class ExperienciaComponent implements OnInit {
 
     this.reloadData();
 
-    this.portfolioService.obtenerDatosTrabajo().subscribe(
-      (data: Trabajo[]) => {
-        this.trabajoList = data;
-      }
-    );
   }
 
   private reloadData() {
@@ -56,8 +50,7 @@ export class ExperienciaComponent implements OnInit {
     this.modalNuevaExp.setValue({
       id:"",
       img:"",
-      school:"",
-      titulo:"",
+      puesto:"",
       inicio:"",
       fin:"",
       info:""
@@ -76,7 +69,20 @@ export class ExperienciaComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.modalNuevaExp.value);
+    let trabajo: Trabajo = this.modalNuevaExp.value;
+    if (this.modalNuevaExp.get('id')?.value == '') {
+      this.portfolioService.guardarNuevoTrabajo(trabajo).subscribe(
+        (newTrabajo: Trabajo) => {
+          this.trabajoList.push(newTrabajo);
+        }
+      );
+    } else {
+      this.portfolioService.modificarTrabajo(trabajo).subscribe(
+        () => {
+          this.reloadData();
+        }
+      )
+    }
   }
 
   onNewTrabajo(){
@@ -91,7 +97,7 @@ export class ExperienciaComponent implements OnInit {
   onDeleteTrabajo(index: number) {
     let trabajo: Trabajo = this.trabajoList[index];
     if (confirm("¿Está seguro que desea borrar el trabajo seleccionado?")) {
-      this.portfolioService.borrarEducacion(trabajo.id).subscribe(
+      this.portfolioService.borrarTrabajo(trabajo.id).subscribe(
         () => {
           this.reloadData();
         }

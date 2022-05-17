@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { LoginComponent } from './auth/login/login.component';
+import { IniciarSesionComponent } from './componentes/navbar/iniciar-sesion/iniciar-sesion.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './auth/login/login.component';
     ProyectosComponent,
     FooterComponent,
     PorfolioComponent,
-    LoginComponent
+    LoginComponent,
+    IniciarSesionComponent
   ],
   imports: [
     BrowserModule,

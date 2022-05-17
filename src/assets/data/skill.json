@@ -1,62 +1,62 @@
 {
     "skill": [
         {
-            "id": "graph9",
+            "name": "graph9",
             "dato": "50",
             "clase": "fab fa-html5"
         },
         {
-            "id": "graph10",
+            "name": "graph10",
             "dato": "50",
             "clase": "fab fa-css3-alt"
         },
         {
-            "id": "grap11",
+            "name": "grap11",
             "dato": "50",
             "clase": "fab fa-bootstrap"
         },
         {
-            "id": "graph12",
+            "name": "graph12",
             "dato": "50",
             "clase": "fab fa-angular"
         },
         {
-            "id": "graph13",
+            "name": "graph13",
             "dato": "50",
             "clase": "fab fa-java"
         },
         {
-            "id": "graph14",
+            "name": "graph14",
             "dato": "50",
             "clase": "fab fa-node"
         },
         {
-            "id": "graph1",
+            "name": "graph1",
             "dato": "61",
-            "soft": "Responsabilidad"
+            "soft": "Responsabilnamead"
         },
         {
-            "id": "graph2",
+            "name": "graph2",
             "dato": "79",
             "soft": "Autogestión"
         },
         {
-            "id": "graph3",
+            "name": "graph3",
             "dato": "89",
-            "soft": "Liderazgo"
+            "soft": "Lnameerazgo"
         },
         {
-            "id": "graph4",
+            "name": "graph4",
             "dato": "50",
             "soft": "Motivación"
         },
         {
-            "id": "graph5",
+            "name": "graph5",
             "dato": "71",
             "soft": "Inteligencia Social"
         },
         {
-            "id": "graph6",
+            "name": "graph6",
             "dato": "68",
             "soft": "Cooperación"
         }

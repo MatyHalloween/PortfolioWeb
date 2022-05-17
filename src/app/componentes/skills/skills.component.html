@@ -11,7 +11,7 @@
               <li class="col-lg-4 col-md-6 circulos" style="list-style:none" *ngFor="let skill of skillList; let i = index">
                 <div class="row flex-column justify-content-center">
                   <circle-progress
-                  [id]="skill.id"
+                  [id]="skill.name"
                   [percent]="skill.dato"
                   [radius]="50"
                   [outerStrokeWidth]="8"
@@ -29,14 +29,14 @@
                   [subtitleColor]="'#fff'"
                   [responsive]="true"
                 ></circle-progress><!-- HTML5 -->
-                <div *ngIf="isUserLogged">
-                <div class="text-center" style="font-size: 50px;" *ngIf="skill.clase; else blanda"><i [attr.class]="skill.clase"></i><a href="" (click)="onEditSkill(i)"><i class="bi bi-pencil-square ms-2"></i></a>
-                  <a href=""><i class="bi bi-trash"></i></a>
+                  <div class="text-center" style="font-size: 50px;" *ngIf="skill.clase; else blanda"><i [attr.class]="skill.clase"></i>
                   </div>
-                  <ng-template #blanda><h3 class="text-center ">{{skill.soft}}<a href="" (click)="onDeleteSkill(i)" ><i class="bi bi-pencil-square ms-2"></i>
-                  </a>
-                <a href=""><i class="bi bi-trash"></i></a></h3></ng-template>
-                </div>
+                  <ng-template #blanda><h3 class="text-center ">{{skill.soft}}</h3>
+                  </ng-template>
+                  <div *ngIf="isUserLogged" class="text-center">
+                  <a href="" data-bs-toggle="modal" data-bs-target="#modalNuevaSkill"  (click)="onEditSkill(i)" ><i class="bi bi-pencil-square ms-2"></i></a>
+                  <a href="" (click)="onDeleteSkill(i)"><i class="bi bi-trash"></i></a>
+                  </div>
               </div>
               </li>
             </ul>
@@ -56,18 +56,19 @@
           </div>
           <div class="modal-body">
             <form [formGroup]="modalNuevaSkill" (ngSubmit)="onSubmit()">
+            <input type="hidden" name="id" formControlName="id">
             <p>Hard Skill</p>
-            <input class="form-control mb-2" type="text" id="message-text">
+            <input class="form-control mb-2" type="text" name="clase" formControlName="clase">
             <p>Soft Skill</p>
-            <input class="form-control mb-2" type="text" id="message-text">
+            <input class="form-control mb-2" type="text" name="soft" formControlName="soft">
             <p>Porcentaje</p>
-            <input class="form-control mb-2" type="text" id="message-text">
-          </form>
-          </div>
-          <div class="modal-footer">
+            <input class="form-control mb-2" type="text" name="dato" formControlName="dato">
+            <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Actualizar</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+            </form>
           </div>
-        </div>
     </div>
   </div>
+</div>

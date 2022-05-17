@@ -1,31 +1,30 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-iniciar-sesion',
+  templateUrl: './iniciar-sesion.component.html',
+  styleUrls: ['./iniciar-sesion.component.css']
 })
-export class LoginComponent implements OnInit {
-
-
-  modalLoginForm: FormGroup;
+export class IniciarSesionComponent implements OnInit {
+  form: FormGroup;
   loginError: Boolean = false;
+
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
-    ) {
-      this.modalLoginForm = this.formBuilder.group(
-        {
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6)]]
-        }
-      )
-     }
+  ) {
+    this.form = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]]
+      }
+    )
+   }
 
   ngOnInit(): void {
   }
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault;
 
-    this.authService.login(this.modalLoginForm.value).subscribe(
+    this.authService.login(this.form.value).subscribe(
       (response: Boolean) => {
         if (response)
           this.router.navigate(['/home']);
@@ -44,11 +43,12 @@ export class LoginComponent implements OnInit {
   }
 
   get Email() {
-    return this.modalLoginForm.get('email');
+    return this.form.get('email');
   }
 
   get Password() {
-    return this.modalLoginForm.get('password');
+    return this.form.get('password');
   }
+
 
 }

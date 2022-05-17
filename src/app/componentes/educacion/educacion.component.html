@@ -4,7 +4,7 @@
       <div class="container">
         <div class="section-title">
             <h2>Educación</h2>
-            <div *ngIf="isUserLogged" class="justify-content-fin"><a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onNewEducation"><i class="bi bi-plus-square"></i></a></div> <!--Boton de Agregar Educacion-->
+            <div *ngIf="isUserLogged" class="justify-content-fin"><a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onNewEducation()"><i class="bi bi-plus-square"></i></a></div> <!--Boton de Agregar Educacion-->
         </div>
       </div>
       <div class="exp2">
@@ -29,7 +29,7 @@
                   <p>{{educacion.info}}</p>
                 </div>
               </div>
-              <div *ngIf="isUserLogged" class="data-control">
+              <div *ngIf="isUserLogged" class="data-control col-md-auto">
                 <div class="col-md-auto btn-edit">
                   <a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onEditEducation(i)">
                     <i class="bi bi-pencil-square me-3"></i></a> <!--Boton Editar-->
@@ -54,24 +54,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form [formGroup]="modalNuevaEdu" (ngSubmit)="onSubmit">
+                    <form [formGroup]="modalNuevaEdu" (ngSubmit)="onSubmit()">
+                      <input type="hidden" name="id" formControlName="id">
                     <p>Logo de la Institución (URL):</p>
-                    <input class="form-control mb-2" type="text" id="message-text"> <!-- <div class="photo-input mb-3"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> </div> -->
+                    <input class="form-control mb-2" name="img" type="text" id="img" formControlName="img">
+                    <p>Nombre de la institución</p>
+                    <input class="form-control mb-2" type="text" id="school" formControlName="school">
                     <p>Título de grado o nombre del curso</p>
-                    <input class="form-control mb-2" type="text" id="message-text">
+                    <input class="form-control mb-2" type="text" id="titulo" formControlName="titulo">
                     <div>
                       <p>Año de inicio</p>
-                      <input class="form-control mb-2" type="text" id="message-text">
+                      <input class="form-control mb-2" type="text" id="inicio" formControlName="inicio">
                       <p>Año de fin. Si no tiene un año escribir Presente.</p>
-                      <input class="form-control mb-2" type="text" id="message-text">
+                      <input class="form-control mb-2" type="text" id="fin" formControlName="fin">
                     </div>
                     <div>
                       <p>Información para complementar</p>
-                      <input class="form-control mb-2" type="text" id="message-text">
+                      <input class="form-control mb-2" type="text" id="info" formControlName="info">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+                      <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                   </form>
                   </div>

@@ -7,21 +7,22 @@
       </div>
       <div class="row">
         <div class="col member text-center">
-          <div class="pic d-block">
-            <img class="mx-auto" src="https://i.imgur.com/UHa9Cq9.jpg" alt="">
-            <a *ngIf="isUserLogged" href="" data-bs-toggle="modal" data-bs-target="#modalFotoPerfil"><i class="bi bi-pencil-square "></i></a>   <!-- Boton para foto de perfil -->
-          </div>
-          <div class="ps-4 text-center pic">
-            <p>Mi nombre es Matías Binaghi. <br> Full Stack Developer Jr y Estudiante de Contador Público.</p>
-            <div *ngIf="isUserLogged" class="info" >
-            <a href="" data-bs-toggle="modal" data-bs-target="#modalAcercaDe"><i class="bi bi-pencil-square"></i></a> <!-- Boton para editar info -->
-          </div>
-          </div>
-          <div class="social d-flex mt-4" style="justify-content: center;">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="ms-2"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="ms-2"><i class="bi bi-linkedin"></i></a>
-          </div>
+          <ul>
+            <li style="list-style:none" *ngFor="let acercade of acercadeList; let i = index">
+              <div class="pic d-block">
+                <img class="mx-auto" [src]="acercade.img" alt="">
+                <a *ngIf="isUserLogged" href="" data-bs-toggle="modal" data-bs-target="#modalFotoPerfil" (click)="onEditAcercade(i)"><i class="bi bi-pencil-square "></i></a>   <!-- Boton para foto de perfil -->
+              </div>
+              <div class="ps-4 text-center pic">
+                <p>{{acercade.acercade}}</p>
+              </div>
+              <div class="social d-flex mt-4" style="justify-content: center;">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="ms-2"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="ms-2"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -34,26 +35,32 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Subir nueva foto de perfil</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    Actualizar Acerca De</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              <form [formGroup]="acercaDeModal" (ngSubmit)="onSubmit()">
+                <input type="hidden" name="id" formControlName="id">
                 <p class="body-desc">
-                    Puedes subir cualquier imagen en formato JPG, GIF o PNG. </p>
-                <div class="photo-input"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> <!--<button class="btn btn-sm btn-primary" onclick="document.getElementById('loadFile').click()"> Select a file </button>--> </div>
-            </div>
-            <div class="modal-footer">
-                <p class="footer-title">
-                    Si tienes problemas intenta con una imagen de menor tamaño.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Actualizar</button>
-            </div>
+                  Inserta la URL de la imagen que quieres colocar.</p>
+                <input class="form-control mb-2" name="img" type="text" id="img" formControlName="img">
+                <div class="modal-footer">
+                    <p class="footer-title">
+                      Elige tu mejor foto de perfil.</p>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Ingresa tu descripción:</label>
+                  <textarea class="form-control" type="text" name="acercade" formControlName="acercade"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
-  <!-- Modal para editar info -->
+  <!-- Modal para editar info
 
   <div class="modal fade" id="modalAcercaDe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -76,4 +83,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->

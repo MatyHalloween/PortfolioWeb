@@ -16,16 +16,17 @@ export class AuthService {
     return this.http.post<Boolean>(config.baseUrl + "login", credentials).pipe(
       tap((response: Boolean) => {
         if (response)
-          sessionStorage.setItem("user", "matias");
+          sessionStorage.setItem("email", "true");
+          console.log(sessionStorage.setItem);
       })
     );
-  }
+}
 
-    public logout() {
-      localStorage.removeItem("user");
+    public logout(): void {
+      sessionStorage.removeItem("email");
     }
 
     public isUserLogged():boolean {
-      return localStorage.getItem("user") !== null;
+      return sessionStorage.getItem("email") !== null;
     }
   }

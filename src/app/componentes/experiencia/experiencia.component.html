@@ -4,7 +4,7 @@
         <div class="container">
           <div class="section-title">
               <h2>Experiencia</h2>
-              <div *ngIf="isUserLogged" class="justify-content-fin"><a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaExp"><i class="bi bi-plus-square"></i></a></div>
+              <div *ngIf="isUserLogged" class="justify-content-fin"><a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaExp" (click)="onNewTrabajo()"><i class="bi bi-plus-square"></i></a></div>
           </div>
         </div>
         <div class="exp2">
@@ -26,17 +26,16 @@
                     <h5>{{trabajo.puesto}}</h5>
                     <h6>{{trabajo.inicio}} - {{trabajo.fin}}</h6>
                     <ul>
-                      <li style="list-style: disc;" *ngFor="let actividad of trabajo.info">{{actividad}}</li>
+                      <li style="list-style: disc;">{{trabajo.info}}</li>
                     </ul>
-
                   </div>
                 </div>
-                <div *ngIf="isUserLogged" class="data-control">
-                  <div class="col-md-auto btn-edit">
-                    <a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onEditTrabajo(i)">
+                <div *ngIf="isUserLogged" class="data-control col-md-auto">
+                  <div class="col-md-auto btn-edit col-md-auto">
+                    <a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaExp" (click)="onEditTrabajo(i)">
                       <i class="bi bi-pencil-square me-3"></i></a> <!--Boton Editar-->
                   </div>
-                  <div class="col-md-auto btn-edit">
+                  <div class="col-md-auto btn-edit col-md-auto">
                     <a href="" style="color: black;" (click)="onDeleteTrabajo(i)"><i class="bi bi-trash"></i></a> <!--Boton Borrar-->
                   </div>
                 </div>
@@ -57,28 +56,25 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form>
-              <p>Logo de la empresa:</p>
-              <div class="photo-input mb-3"> <input type="file" id="loadFile" onchange="console.log(this.files[0].name);" /> </div>
+              <form [formGroup]="modalNuevaExp" (ngSubmit)="onSubmit()">
+                <input type="hidden" name="id" formControlName="id">
+              <p>Logo de la empresa (URL):</p>
+              <input class="form-control mb-2" name="img" type="text" id="img" formControlName="img">
               <p>Cargo o Puesto</p>
-              <input class="form-control mb-3" type="text" id="message-text">
+              <input class="form-control mb-3" type="text" id="puesto" formControlName="puesto">
               <div>
                 <p>Año de inicio</p>
-                <input class="form-control mb-3" type="text" id="message-text">
+                <input class="form-control mb-3" type="text" id="inicio" formControlName="inicio">
                 <p>Año de Fin. Si no tiene un año escribir Presente.</p>
-                <input class="form-control mb-2" type="text" id="message-text">
+                <input class="form-control mb-2" type="text" id="fin" formControlName="fin">
               </div>
               <div>
-                <p>Insertar 3 funciones del cargo o puesto.</p>
-                <input class="form-control mb-2" type="text" id="message-text">
-
-                <input class="form-control mb-2" type="text" id="message-text">
-
-                <input class="form-control" type="text" id="message-text">
+                <p>Insertar funciones del cargo o puesto.</p>
+                <input class="form-control mb-2" type="text" id="info" formControlName="info">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Actualizar</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
               </div>
             </form>
             </div>

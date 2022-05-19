@@ -77,6 +77,7 @@ export class EducacionComponent implements OnInit {
       this.portfolioService.guardarNuevaEducacion(educacion).subscribe(
         (newEducacion: Educacion) => {
           this.educacionList.push(newEducacion);
+          this.reloadData();
         }
       );
     } else {

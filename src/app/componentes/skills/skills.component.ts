@@ -68,6 +68,7 @@ export class SkillsComponent implements OnInit {
       this.portfolioService.guardarNuevaSkill(skill).subscribe(
         (newSkill: Skill) => {
           this.skillList.push(newSkill);
+          this.reloadData();
         }
       );
     } else {

@@ -74,6 +74,7 @@ export class ExperienciaComponent implements OnInit {
       this.portfolioService.guardarNuevoTrabajo(trabajo).subscribe(
         (newTrabajo: Trabajo) => {
           this.trabajoList.push(newTrabajo);
+          this.reloadData();
         }
       );
     } else {

@@ -62,6 +62,7 @@ export class ProyectosComponent implements OnInit {
       this.portfolioService.guardarNuevoProyecto(proyecto).subscribe(
         (newProyecto: Proyecto) => {
           this.proyectoList.push(newProyecto);
+          this.reloadData();
         }
       );
     } else {

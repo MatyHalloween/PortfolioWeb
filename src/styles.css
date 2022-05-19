@@ -237,6 +237,6 @@ footer {
 /* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     .exp2 {
-        margin-left: 97px;
+        margin-left: auto;
     }
 }

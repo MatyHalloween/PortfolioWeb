@@ -19,12 +19,12 @@ export class ExperienciaComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder) {
       this.modalNuevaExp = this.formBuilder.group({
-        id:[""],
-        img:[""],
-        puesto:["", [Validators.required]],
-        inicio:["", [Validators.required]],
-        fin:["", [Validators.required]],
-        info:["", [Validators.required]]
+        id:[''],
+        img:[''],
+        puesto:['', [Validators.required]],
+        inicio:['', [Validators.required]],
+        fin:['', [Validators.required]],
+        info:['', [Validators.required]]
       }
 
     )
@@ -48,12 +48,12 @@ export class ExperienciaComponent implements OnInit {
 
   private clearForm(){
     this.modalNuevaExp.setValue({
-      id:"",
-      img:"",
-      puesto:"",
-      inicio:"",
-      fin:"",
-      info:""
+      id:'',
+      img:'',
+      puesto:'',
+      inicio:'',
+      fin:'',
+      info:''
     })
   }
 
@@ -73,6 +73,7 @@ export class ExperienciaComponent implements OnInit {
     if (this.modalNuevaExp.get('id')?.value == '') {
       this.portfolioService.guardarNuevoTrabajo(trabajo).subscribe(
         (newTrabajo: Trabajo) => {
+          console.log(newTrabajo);
           this.trabajoList.push(newTrabajo);
           this.reloadData();
         }
@@ -84,6 +85,7 @@ export class ExperienciaComponent implements OnInit {
         }
       )
     }
+    console.log(this.modalNuevaExp.value);
   }
 
   onNewTrabajo(){
@@ -97,7 +99,7 @@ export class ExperienciaComponent implements OnInit {
 
   onDeleteTrabajo(index: number) {
     let trabajo: Trabajo = this.trabajoList[index];
-    if (confirm("¿Está seguro que desea borrar el trabajo seleccionado?")) {
+    if (confirm('¿Está seguro que desea borrar el trabajo seleccionado?')) {
       this.portfolioService.borrarTrabajo(trabajo.id).subscribe(
         () => {
           this.reloadData();

@@ -4,7 +4,7 @@
       <div class="container">
         <div class="section-title">
             <h2>Educación</h2>
-            <div *ngIf="isUserLogged" class="justify-content-fin"><a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onNewEducation()"><i class="bi bi-plus-square"></i></a></div> <!--Boton de Agregar Educacion-->
+            <div *ngIf="isUserLogged" class="justify-content-fin"><a style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onNewEducation()"><i class="bi bi-plus-square"></i></a></div> <!--Boton de Agregar Educacion-->
         </div>
       </div>
       <div class="exp2">
@@ -31,11 +31,11 @@
               </div>
               <div *ngIf="isUserLogged" class="data-control col-md-auto">
                 <div class="col-md-auto btn-edit">
-                  <a href="" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onEditEducation(i)">
+                  <a style="color: black;" data-bs-toggle="modal" data-bs-target="#modalNuevaEdu" (click)="onEditEducation(i)">
                     <i class="bi bi-pencil-square me-3"></i></a> <!--Boton Editar-->
                 </div>
-                <div class="col-md-auto btn-edit">
-                  <a href="" style="color: black;" (click)="onDeleteEducation(i)"><i class="bi bi-trash"></i></a> <!--Boton Borrar-->
+                <div class="col-md-auto">
+                  <a style="color: black;" (click)="onDeleteEducation(i)"><i class="bi bi-trash"></i></a> <!--Boton Borrar-->
                 </div>
               </div>
             </div>

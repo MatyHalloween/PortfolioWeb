@@ -3,7 +3,7 @@
   <div class="container">
     <div class="section-title mb-5">
       <h2>Proyectos</h2>
-      <div *ngIf="isUserLogged" class="justify-content-end"><a href="" data-bs-toggle="modal" data-bs-target="#modalNuevoProyecto" (click)="onNewProyecto()"><i class="bi bi-plus-square"></i></a></div>
+      <div *ngIf="isUserLogged" class="justify-content-end"><a data-bs-toggle="modal" data-bs-target="#modalNuevoProyecto" (click)="onNewProyecto()"><i class="bi bi-plus-square"></i></a></div>
     </div>
 
 
@@ -13,8 +13,8 @@
           <div class="portfolio-img ">
             <a href="{{proyecto.url}}"><img [src]="proyecto.img" class="img-fluid" /></a>
             <div *ngIf="isUserLogged" class="text-center">
-              <a href="" data-bs-toggle="modal" data-bs-target="#modalNuevoProyecto"  (click)="onEditProyecto(i)" ><i class="bi bi-pencil-square ms-2"></i></a>
-              <a href="" (click)="onDeleteProyecto(i)"><i class="bi bi-trash"></i></a>
+              <a data-bs-toggle="modal" data-bs-target="#modalNuevoProyecto"  (click)="onEditProyecto(i)" ><i class="bi bi-pencil-square ms-2"></i></a>
+              <a (click)="onDeleteProyecto(i)"><i class="bi bi-trash"></i></a>
             </div>
           </div>
         </div>

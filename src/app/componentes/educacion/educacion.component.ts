@@ -75,9 +75,9 @@ export class EducacionComponent implements OnInit {
     let educacion: Educacion = this.modalNuevaEdu.value;
     if (this.modalNuevaEdu.get('id')?.value == '') {
       this.portfolioService.guardarNuevaEducacion(educacion).subscribe(
-        (newEducacion: Educacion) => {
-          console.log(newEducacion);
-          this.educacionList.push(newEducacion);
+        (newEducation: Educacion) => {
+          console.log(newEducation);
+          this.educacionList.push(newEducation);
           this.reloadData();
         }
       );
@@ -88,7 +88,6 @@ export class EducacionComponent implements OnInit {
         }
       )
     }
-    
   }
 
   onNewEducation(){

@@ -12,6 +12,3 @@ $(window).on("scroll", function () {
     }
 
 });
-
-
-
